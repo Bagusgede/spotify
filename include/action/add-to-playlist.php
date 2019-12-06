@@ -3,7 +3,7 @@
 session_start();
 
 require '../connection.php';
-require '../class/playlistclass.php';
+require '../class/playlistsclass.php';
 
 
 $classPlaylist = new PlaylistsClass($pdo);
