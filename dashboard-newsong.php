@@ -91,6 +91,33 @@
 
                     </div>
                 </div>
+                <div id="modal-playlist-<?= $i ?>" class="uk-flex-top" uk-modal>
+                    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                        <button class="uk-modal-close-default" type="button" uk-close></button>
+                        <form action="include/action/add-to-playlist.php" method="post">
+                          <p>Select Category</p>
+                            <input type="hidden" value="<?php echo $data->id; ?>" name="song_id">
+                          <select name="playlist_id"placeholder="Select Category"class="uk-select">
+                          <?php 
+                                $i = 1;
+                                if ($newplaylist):
+                                    foreach ($newplaylist as $data):
+                            ?>
+                                <option value="<?php echo $data->id; ?><?php echo $data->name; ?>"></option>
+
+                            <?php
+                                    endforeach;
+                                endif;
+                            ?>
+                            </select>
+                            <br><br>
+                            <button type="submit" class=" uk-width-1-1 uk-button uk-button-primary" name="submit">Create
+                                Playlist</button>
+                        </form>
+
+                    </div>
+                </div>
+
                 
                 
             </div>
