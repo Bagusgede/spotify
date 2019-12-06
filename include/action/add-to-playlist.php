@@ -1,14 +1,12 @@
 <?php
 
-
-
 session_start();
 
 require '../connection.php';
 require '../class/playlistclass.php';
 
 
-$classPlaylist = new PlaylistClass($pdo);
+$classPlaylist = new PlaylistsClass($pdo);
 
 $playlist_id = $_POST['playlist_id'];
 $song_id = $_POST['song_id'];
