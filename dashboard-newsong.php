@@ -1,3 +1,7 @@
+<?php
+$newplaylists = $classPlaylists->playlistLagu($userid);
+?>
+
 <style>
     .iya a{
         color:grey;
@@ -72,7 +76,7 @@
                     <br><br>
                     <a href="#modal-playlist-<?= $i ?>" class="uk-width-1-1 uk-width-1-1@m uk-button uk-button-primary"
                         uk-toggle>Create
-                        Playlist</a>    
+                        Playlist</a>
 
                 </div>
                 <div id="modal-playlist-<?= $i ?>" class="uk-flex-top" uk-modal>
@@ -91,33 +95,31 @@
 
                     </div>
                 </div>
-                <div id="modal-playlist-<?= $i ?>" class="uk-flex-top" uk-modal>
+                <div id="modal-daftar-<?= $i ?>" class="uk-flex-top" uk-modal>
                     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-                        <button class="uk-modal-close-default" type="button" uk-close></button>
-                        <form action="include/action/add-to-playlist.php" method="post">
-                          <p>Select Category</p>
-                            <input type="hidden" value="<?php echo $data->id; ?>" name="song_id">
-                          <select name="playlist_id"placeholder="Select Category"class="uk-select">
-                          <?php 
+                    <button class="uk-modal-close-default" type="button" uk-close></button>
+                    <form action="include/action/add-to-playlist.php" method="post">
+                        <p>Select Category</p>
+                            <input type="hidden" name="song_id" value="<?php echo $data->id; ?>">
+                            <select name="playlist_id" placeholder="Select Date" class="uk-select">
+                            <?php 
                                 $i = 1;
-                                if ($newplaylist):
-                                    foreach ($newplaylist as $data):
+                                if ($newplaylists):
+                                    foreach ($newplaylists as $data):
                             ?>
-                                <option value="<?php echo $data->id; ?><?php echo $data->name; ?>"></option>
-
+                                <option value="<?php echo   $data->id; ?>"><?php echo  $data->name; ?></option>
                             <?php
                                     endforeach;
                                 endif;
                             ?>
                             </select>
-                            <br><br>
+                            <br><br>    
                             <button type="submit" class=" uk-width-1-1 uk-button uk-button-primary" name="submit">Create
-                                Playlist</button>
-                        </form>
-
+                                    Playlist</button>
+                    </form>
+                    
                     </div>
                 </div>
-
                 
                 
             </div>
