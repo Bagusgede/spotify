@@ -59,5 +59,32 @@
 
 
         }
+        public function deletePlaylist($id){
+            $result = $this->pdo->prepare("DELETE FROM playlists WHERE id = '$id'");
+            $result->BindParam(":id",$id);
+            if($result->execute()) {
+                    
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        public function addtoplaylist($id, $song){
+            $result1 = $this->pdo->prepare("INSERT INTO playlist_data(
+                playlist_id,
+                song_id) 
+            VALUES (:playlist_id, :song_id)");
+
+            $result1->bindParam(':playlist_id', $id);
+            $result1->bindParam(':song_id', $song);
+            if($result1->execute()) {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        
     }
 ?>
