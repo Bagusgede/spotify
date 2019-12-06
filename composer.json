@@ -1,0 +1,9 @@
+{
+    "name": "bagusgede/spotify",
+    "description": "anjay",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.6"
+    }
+}
